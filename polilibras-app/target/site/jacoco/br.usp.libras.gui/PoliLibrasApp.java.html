@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PoliLibrasApp.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">polilibras-app</a> &gt; <a href="index.source.html" class="el_package">br.usp.libras.gui</a> &gt; <span class="el_source">PoliLibrasApp.java</span></div><h1>PoliLibrasApp.java</h1><pre class="source lang-java linenums">package br.usp.libras.gui;
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+import br.usp.libras.dic.SQLiteDictionary;
+import br.usp.libras.dic.SignDictionary;
+import br.usp.libras.jonah.VirtualJonah;
+import br.usp.libras.translator.Translator;
+
+<span class="nc" id="L23">public class PoliLibrasApp {</span>
+
+	private static JTextField signField;
+	private static JLabel signLabel;
+	private static JComboBox dictionaryCombo;
+	private static JLabel dictionaryLabel;
+	private static JButton infoButton;
+	private static JButton signButton;
+	
+	private static final String LABEL_MESSAGE = &quot;Digite sua frase:  &quot;;
+	private static final String BUTTON_MESSAGE = &quot;Traduzir&quot;;
+	private static final String LABEL_MESSAGE_DICTIONARY = &quot;Selecione a fonte dos sinais: &quot;;
+	private static final String BUTTON_SOBRE = &quot;Sobre&quot;;
+<span class="nc" id="L36">	private static final String[] COMBO_LIST = {&quot;Local (offline)&quot;,&quot;Wikilibras (online)&quot;};</span>
+	
+	 public static void main(String[] args) {
+	     
+<span class="nc" id="L40">	     final JFrame frame = new JFrame(&quot;Poli-Libras APP&quot;);</span>
+<span class="nc" id="L41">	     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L42">	     frame.setResizable(false);</span>
+	
+<span class="nc" id="L44">	     JPanel panel = new JPanel();</span>
+<span class="nc" id="L45">	     JPanel panelCommands = new JPanel(new GridBagLayout());</span>
+	
+<span class="nc" id="L47">	     final VirtualJonah applet = new VirtualJonah();</span>
+<span class="nc" id="L48">	     applet.init();</span>
+	        
+<span class="nc" id="L50">	     signField = new JTextField();</span>
+<span class="nc" id="L51">	     signField.setPreferredSize(new Dimension(200, 20));</span>
+<span class="nc" id="L52">	     signLabel = new JLabel(LABEL_MESSAGE);  </span>
+<span class="nc" id="L53">	     signButton = new JButton(BUTTON_MESSAGE);</span>
+	    
+<span class="nc" id="L55">	     dictionaryLabel = new JLabel(LABEL_MESSAGE_DICTIONARY);</span>
+<span class="nc" id="L56">	     dictionaryCombo = new JComboBox(COMBO_LIST);</span>
+	     
+<span class="nc" id="L58">	     infoButton = new JButton(BUTTON_SOBRE);</span>
+	          
+<span class="nc" id="L60">	     GridBagConstraints grid = new GridBagConstraints();</span>
+<span class="nc" id="L61">	     grid.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L62">	     grid.gridx=0;</span>
+<span class="nc" id="L63">	     grid.gridy=0;</span>
+<span class="nc" id="L64">	     panelCommands.add(signLabel,grid);</span>
+
+<span class="nc" id="L66">	     grid.gridx=1;</span>
+<span class="nc" id="L67">	     grid.gridy=0;</span>
+<span class="nc" id="L68">	     panelCommands.add(signField,grid);</span>
+	     
+<span class="nc" id="L70">	     grid.ipady= 20;</span>
+<span class="nc" id="L71">	     grid.insets = new Insets(0,5,0,0);</span>
+<span class="nc" id="L72">	     grid.gridx=2;</span>
+<span class="nc" id="L73">	     grid.gridy=0;</span>
+<span class="nc" id="L74">	     grid.gridheight = 3;</span>
+<span class="nc" id="L75">	     grid.weighty = 1.0;</span>
+<span class="nc" id="L76">	     panelCommands.add(signButton,grid);</span>
+<span class="nc" id="L77">	     grid.ipady= 0;</span>
+<span class="nc" id="L78">	     grid.insets = new Insets(0,0,0,0);</span>
+	     
+<span class="nc" id="L80">	     grid.gridx=0;</span>
+<span class="nc" id="L81">	     grid.gridy=1;</span>
+<span class="nc" id="L82">	     panelCommands.add(dictionaryLabel,grid);</span>
+	     
+<span class="nc" id="L84">	     grid.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L85">	     grid.gridx=1;</span>
+<span class="nc" id="L86">	     grid.gridy=1;</span>
+<span class="nc" id="L87">	     panelCommands.add(dictionaryCombo,grid);</span>
+	     
+<span class="nc" id="L89">	     grid.ipady= 20;</span>
+<span class="nc" id="L90">	     grid.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="nc" id="L91">	     grid.gridheight = 3;</span>
+<span class="nc" id="L92">	     grid.gridx=3;</span>
+<span class="nc" id="L93">	     grid.gridy=0;</span>
+<span class="nc" id="L94">	     panelCommands.add(infoButton,grid);</span>
+<span class="nc" id="L95">	     grid.ipady=0;</span>
+	     
+<span class="nc" id="L97">	     panel.add(applet);</span>
+<span class="nc" id="L98">	     panel.add(panelCommands);</span>
+	     
+<span class="nc" id="L100">	     frame.add(panel);</span>
+<span class="nc" id="L101">	     frame.setSize(applet.getSize().width, applet.getSize().height +90);</span>
+	     
+<span class="nc" id="L103">	     signButton.addActionListener( new ActionListener(){</span>
+	 	    
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+<span class="nc" id="L108">					String setence = signField.getText();</span>
+					Translator translator;
+					
+<span class="nc bnc" id="L111" title="All 2 branches missed.">					if(dictionaryCombo.getSelectedIndex()==0){</span>
+<span class="nc" id="L112">						SignDictionary dic = new SQLiteDictionary();</span>
+<span class="nc" id="L113">						translator = new Translator(dic);</span>
+								
+<span class="nc" id="L115">					}else{</span>
+<span class="nc" id="L116">						translator = new Translator();</span>
+					}
+					
+<span class="nc" id="L119">					translator.setVerbose();</span>
+<span class="nc" id="L120">					applet.loadSignsFromObject(translator.translate(setence));</span>
+<span class="nc" id="L121">					applet.playSigns();</span>
+<span class="nc" id="L122">				}</span>
+				
+		     } );
+
+<span class="nc" id="L126">		     infoButton.addActionListener( new ActionListener(){</span>
+		 	    
+				@Override
+				public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L130">					JOptionPane.showMessageDialog(frame, &quot;Este é o modulo desktop do Poli-Libras.\nPara mais informações visite nosso site: \n      http://www.polilibras.com.br/&quot;);</span>
+
+<span class="nc" id="L132">				}</span>
+				
+		     } ); 
+
+<span class="nc" id="L136">	     frame.setVisible(true);</span>
+	
+<span class="nc" id="L138">	 }</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

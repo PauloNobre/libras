@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="false">
+  <local-check-config name="MyCheckStyle" location="internal_config_1450135965251.xml" type="internal" description=""/>
+  <local-check-config name="MyCheckStyle2" location="internal_config_1450197529304.xml" type="internal" description=""/>
+  <fileset name="all" enabled="true" check-config-name="MyCheckStyle2" local="true">
+    <file-match-pattern match-pattern="." include-pattern="true"/>
+  </fileset>
+</fileset-config>
