@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 public class SQLiteDictionaryTest extends TestCase {
 	
 	List<Sign> retorno;
+	
 	Sign sign;
 	
 	@Mock
