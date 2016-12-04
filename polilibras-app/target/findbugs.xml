@@ -1,2 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<BugCollection version='3.0.1' threshold='medium' effort='min'><Error></Error><Project><SrcDir>C:\Users\PauloHenrique\workspaceEE\polilibras-app\src</SrcDir><SrcDir>C:\Users\PauloHenrique\workspaceEE\polilibras-app\target\generated-sources\annotations</SrcDir><SrcDir>C:\Users\PauloHenrique\workspaceEE\polilibras-app\teste</SrcDir><SrcDir>C:\Users\PauloHenrique\workspaceEE\polilibras-app\target\generated-test-sources\test-annotations</SrcDir></Project></BugCollection>

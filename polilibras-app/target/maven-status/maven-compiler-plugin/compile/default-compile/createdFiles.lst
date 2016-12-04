@@ -1,9 +1,0 @@
-br\usp\libras\gui\PoliLibrasApp$1.class
-br\usp\libras\data\Dao.class
-br\usp\libras\dic\SQLiteDictionary.class
-br\usp\libras\data\DaoFactory.class
-br\usp\libras\gui\PoliLibrasApp$2.class
-br\usp\libras\gui\PoliLibrasApp.class
-br\usp\libras\data\SignDaoFactory.class
-br\usp\libras\util\SQLiteDialect.class
-br\usp\libras\data\SignDao.class
