@@ -26,7 +26,7 @@ public class PoliLibrasApp {
 	private static JButton iniciarButton;
 	private static JButton pararButton;
 
-	private static final String TITULO = "Poli-Libras APP Test";
+	private static final String TITULO = "PoliLibras App";
 	private static final String INICIAR_MESSAGE = "Iniciar";
 	private static final String PARAR_MESSAGE = "Parar";
 
