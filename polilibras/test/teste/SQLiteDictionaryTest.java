@@ -9,9 +9,9 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import br.usp.libras.dic.SQLiteDictionary;
 import br.usp.libras.sign.Sign;
 import junit.framework.TestCase;
-import ufc.quixada.polilibras.dic.SQLiteDictionary;
 
 public class SQLiteDictionaryTest extends TestCase {
 	

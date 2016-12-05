@@ -1,4 +1,4 @@
-package ufc.quixada.polilibras.main;
+package br.usp.libras.main;
 
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
@@ -15,11 +15,11 @@ import com.darkprograms.speech.recognizer.GSpeechDuplex;
 import com.darkprograms.speech.recognizer.GSpeechResponseListener;
 import com.darkprograms.speech.recognizer.GoogleResponse;
 
+import br.usp.libras.dic.SQLiteDictionary;
 import br.usp.libras.dic.SignDictionary;
 import br.usp.libras.jonah.VirtualJonah;
 import br.usp.libras.translator.Translator;
 import net.sourceforge.javaflacencoder.FLACFileWriter;
-import ufc.quixada.polilibras.dic.SQLiteDictionary;
 
 public class PoliLibrasApp {
 	private static JTextField textField;

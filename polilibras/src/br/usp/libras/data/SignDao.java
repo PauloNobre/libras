@@ -1,4 +1,4 @@
-package ufc.quixada.polilibras.data;
+package br.usp.libras.data;
 
 import java.util.List;
 

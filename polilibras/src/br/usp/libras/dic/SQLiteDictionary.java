@@ -1,4 +1,4 @@
-package ufc.quixada.polilibras.dic;
+package br.usp.libras.dic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+
+import br.usp.libras.data.SignDao;
+import br.usp.libras.data.SignDaoFactory;
 import br.usp.libras.dic.SignDictionary;
 import br.usp.libras.sign.Sign;
-import ufc.quixada.polilibras.data.SignDao;
-import ufc.quixada.polilibras.data.SignDaoFactory;
 
 public class SQLiteDictionary implements SignDictionary {
 

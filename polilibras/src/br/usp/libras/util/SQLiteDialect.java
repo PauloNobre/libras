@@ -1,4 +1,4 @@
-package ufc.quixada.polilibras.util;
+package br.usp.libras.util;
 
 import java.sql.Types;
 
