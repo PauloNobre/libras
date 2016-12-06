@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.apache.log4j.Logger;
+
 import com.darkprograms.speech.microphone.Microphone;
 import com.darkprograms.speech.recognizer.GSpeechDuplex;
 import com.darkprograms.speech.recognizer.GSpeechResponseListener;
@@ -74,7 +76,8 @@ public class PoliLibrasApp {
 					iniciarButton.setEnabled(false);
 					pararButton.setEnabled(true);
 				} catch (Exception ex) {
-					ex.printStackTrace();
+					Logger logger = Logger.getLogger(PoliLibrasApp.class);
+					logger.info(ex.getMessage());
 				}
 			}
 		});
