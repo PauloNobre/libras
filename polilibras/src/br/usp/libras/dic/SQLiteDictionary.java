@@ -16,8 +16,7 @@ import br.usp.libras.sign.Sign;
 public class SQLiteDictionary implements SignDictionary {
 
 	private static final String DATABASE_URL = "jdbc:sqlite:resources/wikilibras.db";
-	// private static final String DATABASE_URL =
-	// "jdbc:sqlite::resources:wikilibras.db";
+	// private static final String DATABASE_URL = "jdbc:sqlite::resources:wikilibras.db";
 
 	private SignDao dao;
 
@@ -38,7 +37,8 @@ public class SQLiteDictionary implements SignDictionary {
 		List<Sign> signs = dao.searchByNearName(arg0);
 		if (signs != null) {
 			return signs;
-		} else {			return new ArrayList<Sign>();
+		} else {
+			return new ArrayList<>();
 		}
 	}
 
@@ -64,7 +64,7 @@ public class SQLiteDictionary implements SignDictionary {
 		if (signs != null) {
 			return signs;
 		} else {
-			return new ArrayList<Sign>();
+			return new ArrayList<>();
 		}
 	}
 

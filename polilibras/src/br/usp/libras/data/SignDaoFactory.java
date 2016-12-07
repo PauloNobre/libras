@@ -12,7 +12,7 @@ public class SignDaoFactory<T> extends DaoFactory<T> {
 
     @Override
     public Dao<T> getDao() {
-        return new Dao<T>(this.session, Sign.class);
+        return new Dao<>(this.session, Sign.class);
     }
     
     public SignDao getSignDao() {

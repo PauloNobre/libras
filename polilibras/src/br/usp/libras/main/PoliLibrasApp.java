@@ -78,6 +78,7 @@ public class PoliLibrasApp {
 				} catch (Exception ex) {
 					Logger logger = Logger.getLogger(PoliLibrasApp.class);
 					logger.info(ex.getMessage());
+					throw new RuntimeException(ex);
 				}
 			}
 		});

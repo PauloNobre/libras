@@ -1,5 +1,6 @@
 package br.usp.libras.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.NonUniqueResultException;
@@ -48,8 +49,7 @@ public class Dao<T> {
         try {
             return this.session.createCriteria(this.clazz).list();
         } catch (HibernateException e) {
-            System.out.println(e);
-            return null;
+        	return new ArrayList<T>();
         }
     }
 }
