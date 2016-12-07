@@ -9,12 +9,17 @@ import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
 
 public class SQLiteDialect extends Dialect {
+	
+	public static final String INTEGER = "integer";
+	public static final String BLOB = "blob";
+	public static final String SUBSTR = "substr";
+	
 	public SQLiteDialect() {
 		super();
-		registerColumnType(Types.BIT, "integer");
+		registerColumnType(Types.BIT, INTEGER);
 		registerColumnType(Types.TINYINT, "tinyint");
 		registerColumnType(Types.SMALLINT, "smallint");
-		registerColumnType(Types.INTEGER, "integer");
+		registerColumnType(Types.INTEGER, INTEGER);
 		registerColumnType(Types.BIGINT, "bigint");
 		registerColumnType(Types.FLOAT, "float");
 		registerColumnType(Types.REAL, "real");
@@ -27,18 +32,17 @@ public class SQLiteDialect extends Dialect {
 		registerColumnType(Types.DATE, "date");
 		registerColumnType(Types.TIME, "time");
 		registerColumnType(Types.TIMESTAMP, "timestamp");
-		registerColumnType(Types.BINARY, "blob");
-		registerColumnType(Types.VARBINARY, "blob");
-		registerColumnType(Types.LONGVARBINARY, "blob");
-		// registerColumnType(Types.NULL, "null");
-		registerColumnType(Types.BLOB, "blob");
+		registerColumnType(Types.BINARY, BLOB);
+		registerColumnType(Types.VARBINARY, BLOB);
+		registerColumnType(Types.LONGVARBINARY, BLOB);
+		registerColumnType(Types.BLOB, BLOB);
 		registerColumnType(Types.CLOB, "clob");
-		registerColumnType(Types.BOOLEAN, "integer");
+		registerColumnType(Types.BOOLEAN, INTEGER);
 
 		 registerFunction( "concat", new VarArgsSQLFunction(Hibernate.STRING, "", "||", "") );
 		 registerFunction( "mod", new SQLFunctionTemplate( Hibernate.INTEGER, "?1 % ?2" ) );
-		 registerFunction( "substr", new StandardSQLFunction("substr", Hibernate.STRING) );
-		 registerFunction( "substring", new StandardSQLFunction( "substr", Hibernate.STRING ) );
+		 registerFunction( SUBSTR, new StandardSQLFunction(SUBSTR, Hibernate.STRING) );
+		 registerFunction( "substring", new StandardSQLFunction( SUBSTR, Hibernate.STRING ) );
 	}
 
 	public boolean supportsIdentityColumns() {
@@ -65,8 +69,7 @@ public class SQLiteDialect extends Dialect {
 	 */
 
 	public String getIdentityColumnString() {
-		// return "integer primary key autoincrement";
-		return "integer";
+		return INTEGER;
 	}
 
 	public String getIdentitySelectString() {

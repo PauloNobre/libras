@@ -93,21 +93,21 @@ public class PoliLibrasApp {
 		});
 		
 		duplex.addResponseListener(new GSpeechResponseListener() {
-			String texto_audio;
+			String textoAudio;
 
 			@Override
 			public void onResponse(GoogleResponse gr) {
-				String output = "";
-				output = gr.getResponse();
-				if (gr.getResponse() == null) {
+				if(gr.getResponse() != null) {
+					this.textoAudio = gr.getResponse();
+				}
+				else if (gr.getResponse() == null) {
 					SignDictionary dic = new SQLiteDictionary();
 					Translator translator = new Translator(dic);
 					
 					translator.setVerbose();
-					vJonah.loadSignsFromObject(translator.translate(this.texto_audio));
+					vJonah.loadSignsFromObject(translator.translate(this.textoAudio));
 					vJonah.playSigns();
 				}
-                this.texto_audio = output;
 			}
 		});
 	}
