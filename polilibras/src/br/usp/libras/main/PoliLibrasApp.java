@@ -78,7 +78,6 @@ public class PoliLibrasApp {
 				} catch (Exception ex) {
 					Logger logger = Logger.getLogger(PoliLibrasApp.class);
 					logger.info(ex.getMessage());
-					throw new RuntimeException(ex);
 				}
 			}
 		});
@@ -101,8 +100,6 @@ public class PoliLibrasApp {
 				String output = "";
 				output = gr.getResponse();
 				if (gr.getResponse() == null) {
-					System.out.println(this.texto_audio);
-					
 					SignDictionary dic = new SQLiteDictionary();
 					Translator translator = new Translator(dic);
 					
@@ -110,7 +107,6 @@ public class PoliLibrasApp {
 					vJonah.loadSignsFromObject(translator.translate(this.texto_audio));
 					vJonah.playSigns();
 				}
-				System.out.println(output);
                 this.texto_audio = output;
 			}
 		});

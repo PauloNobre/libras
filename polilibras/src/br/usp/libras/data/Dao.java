@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.persistence.NonUniqueResultException;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+
+import br.usp.libras.main.PoliLibrasApp;
 
 public class Dao<T> {
 
@@ -49,7 +52,9 @@ public class Dao<T> {
         try {
             return this.session.createCriteria(this.clazz).list();
         } catch (HibernateException e) {
-        	return new ArrayList<T>();
+        	Logger logger = Logger.getLogger(Dao.class);
+			logger.info(e.getMessage());
+        	return new ArrayList<>();
         }
     }
 }

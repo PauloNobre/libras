@@ -16,7 +16,6 @@ import br.usp.libras.sign.Sign;
 public class SQLiteDictionary implements SignDictionary {
 
 	private static final String DATABASE_URL = "jdbc:sqlite:resources/wikilibras.db";
-	// private static final String DATABASE_URL = "jdbc:sqlite::resources:wikilibras.db";
 
 	private SignDao dao;
 
@@ -26,7 +25,7 @@ public class SQLiteDictionary implements SignDictionary {
 				DATABASE_URL);
 		SessionFactory sessions = configSqlite.configure().buildSessionFactory();
 		Session session = sessions.openSession();
-		SignDaoFactory<Sign> factory = new SignDaoFactory<Sign>(session);
+		SignDaoFactory<Sign> factory = new SignDaoFactory<>(session);
 		this.dao = factory.getSignDao();
 
 	}
