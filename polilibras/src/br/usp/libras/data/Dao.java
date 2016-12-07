@@ -10,8 +10,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import br.usp.libras.main.PoliLibrasApp;
-
 public class Dao<T> {
 
     protected final Session session;
@@ -53,7 +51,7 @@ public class Dao<T> {
             return this.session.createCriteria(this.clazz).list();
         } catch (HibernateException e) {
         	Logger logger = Logger.getLogger(Dao.class);
-			logger.info(e.getMessage());
+			logger.info(e);
         	return new ArrayList<>();
         }
     }

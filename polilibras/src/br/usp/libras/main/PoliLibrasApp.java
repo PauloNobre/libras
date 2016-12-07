@@ -77,7 +77,7 @@ public class PoliLibrasApp {
 					pararButton.setEnabled(true);
 				} catch (Exception ex) {
 					Logger logger = Logger.getLogger(PoliLibrasApp.class);
-					logger.info(ex.getMessage());
+					logger.info(ex);
 				}
 			}
 		});

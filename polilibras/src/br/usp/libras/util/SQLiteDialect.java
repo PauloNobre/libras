@@ -51,7 +51,7 @@ public class SQLiteDialect extends Dialect {
 
 	/*
 	 public boolean supportsInsertSelectIdentity() {
-	 return true; // As specify in NHibernate dialect
+	 return true; As specify in NHibernate dialect
 	 }
 	 */
 
@@ -61,7 +61,7 @@ public class SQLiteDialect extends Dialect {
 
 	/*
 	 public String appendIdentitySelectToInsert(String insertString) {
-	 return new StringBuffer(insertString.length()+30). // As specify in NHibernate dialect
+	 return new StringBuffer(insertString.length()+30). As specify in NHibernate dialect
 	 append(insertString).
 	 append("; ").append(getIdentitySelectString()).
 	 toString();
